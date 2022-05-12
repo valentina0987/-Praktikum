@@ -26,7 +26,7 @@ public class Mesto1Test {
                 .auth().oauth2(bearerToken) // Передаём токен для аутентификации
                 .body("{\"name\":\"Москва\",\"link\":\"https://code.s3.yandex.net/qa-automation-engineer/java/files/paid-track/sprint1/photoSelenium.jpg\"}") // Формируем тело запроса
                 .post("/api/cards") // Делаем POST-запрос
-                .then().statusCode(400); // Проверяем код ответа
+                .then().statusCode(201); // Проверяем код ответа
     }
 
     @Test
@@ -54,7 +54,7 @@ public class Mesto1Test {
         given()
                 .auth().oauth2(bearerToken) // Передаём токен для аутентификации
                 .put("/api/cards/{photoId}/likes", photoId) // Делаем PUT-запрос
-                .then().assertThat().statusCode(400); // Проверяем, что сервер вернул код 200
+                .then().assertThat().statusCode(200); // Проверяем, что сервер вернул код 200
     }
 
     @Step("Delete like from the photo by id")
