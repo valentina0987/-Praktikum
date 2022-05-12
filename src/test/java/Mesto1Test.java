@@ -54,7 +54,7 @@ public class Mesto1Test {
         given()
                 .auth().oauth2(bearerToken) // Передаём токен для аутентификации
                 .put("/api/cards/{photoId}/likes", photoId) // Делаем PUT-запрос
-                .then().assertThat().statusCode(200); // Проверяем, что сервер вернул код 200
+                .then().assertThat().statusCode(400); // Проверяем, что сервер вернул код 200
     }
 
     @Step("Delete like from the photo by id")
